@@ -1,0 +1,19 @@
+{
+  "name": "color-grid-game",
+  "version": "1.0.0",
+  "description": "color grid game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rise-erpelding/color-grid-game.git"
+  },
+  "author": "Rise Erpelding",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rise-erpelding/color-grid-game/issues"
+  },
+  "homepage": "https://github.com/rise-erpelding/color-grid-game#readme"
+}
