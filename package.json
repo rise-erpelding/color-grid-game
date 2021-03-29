@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rise-erpelding/color-grid-game/issues"
   },
-  "homepage": "https://github.com/rise-erpelding/color-grid-game#readme"
+  "homepage": "https://github.com/rise-erpelding/color-grid-game#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
 }
