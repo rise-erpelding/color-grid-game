@@ -30,13 +30,17 @@ describe('convertRGBToHex function', () => {
 });
 
 describe('convertHexToRGB function', () => {
-  test('turns a valid hex color into rgb values', () => {
-    const rgbObj = {
-      r: 255,
-      g: 170,
-      b: 0,
-    };
+  const rgbObj = {
+    r: 255,
+    g: 170,
+    b: 0,
+  };
+  test('turns a valid lowercased hex color into rgb values', () => {
     expect(convertHexToRGB('#ffaa00')).toStrictEqual(rgbObj);
+  });
+
+  test('turns a valid uppercased hex color into rgb values', () => {
+    expect(convertHexToRGB('#FFAA00')).toStrictEqual(rgbObj);
   });
 
   test('throws an error for invalid hex color input', () => {

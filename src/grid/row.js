@@ -1,4 +1,5 @@
 const { convertHexToRGB, convertRGBToHex } = require('../color-utils');
+const { makeStops } = require('./stops');
 
 const makeRow = (length, startColor, endColor) => {
   const row = new Array(length);
