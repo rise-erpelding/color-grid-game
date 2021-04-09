@@ -1,3 +1,5 @@
+const { makeGrid } = require('../src/grid/grid');
+
 console.log('hello!!!!!')
 
 const form = document.getElementById('color-form');
