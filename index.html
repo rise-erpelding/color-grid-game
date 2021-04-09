@@ -8,7 +8,29 @@
   <title>Color Grid Game</title>
 </head>
 <body>
-  Hello world
+  <form id="color-form">
+    <div class="form-top-row">
+      <input type="color" id="top-left" name="top-left" value="#ff0000">
+      <label for="top-left">Pick top left color</label>
+      <br>
+      <input type="color" id="top-right" name="top-right" value="#80ff00">
+      <label for="top-right">Pick top right color</label>
+    </div>
+    <div class="form-middle-row">
+      <input type="color" id="bottom-left" name="bottom-left" value="#00ffff">
+      <label for="bottom-left">Pick bottom left color</label>
+      <br>
+      <input type="color" id="bottom-right" name="bottom-right" value="#8000ff">
+      <label for="bottom-right">Pick bottom right color</label>
+    </div>
+    <div class="form-bottom-row">
+      <input type="number" min="2" max="20" id="grid-size" name="grid-size" value="8">
+      <label for="grid-size">Grid Size (2-20)</label>
+    </div>
+    <input type="submit" value="get colors">
+    <input type="reset" value="reset form">
+    </form>
+    <div id="grid-container"></div>
   <script src="./src/index.js"></script>
 </body>
 </html>
