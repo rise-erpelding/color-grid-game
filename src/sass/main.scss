@@ -1,3 +1,15 @@
-body {
-  background: lime;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+#color-form {
+  font-family: 'Roboto', sans-serif;
+}
+
+.color-row {
+  height: 50px;
+}
+
+.color-tile {
+  height: inherit;
+  width: 50px;
+  display: inline-block;
 }
