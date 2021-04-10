@@ -12,9 +12,7 @@ function handleSubmit(event) {
   const topRight = addHash(document.getElementById('top-right').value);
   const bottomLeft = addHash(document.getElementById('bottom-left').value);
   const bottomRight = addHash(document.getElementById('bottom-right').value);
-  const gridSize = document.getElementById('grid-size').value;
-  
-  console.log(topLeft, topRight, bottomLeft, bottomRight, gridSize);
+  const gridSize = Number(document.getElementById('grid-size').value);
   const colorGrid = makeGrid(gridSize, topLeft, topRight, bottomLeft, bottomRight);
   console.log(colorGrid);
   fillColors(colorGrid);
