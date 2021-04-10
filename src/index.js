@@ -1,7 +1,5 @@
 const { makeGrid } = require('../src/grid/grid');
 
-console.log('hello!!!!!')
-
 const form = document.getElementById('color-form');
 form.addEventListener('submit', handleSubmit);
 
@@ -14,7 +12,6 @@ function handleSubmit(event) {
   const bottomRight = addHash(document.getElementById('bottom-right').value);
   const gridSize = Number(document.getElementById('grid-size').value);
   const colorGrid = makeGrid(gridSize, topLeft, topRight, bottomLeft, bottomRight);
-  console.log(colorGrid);
   fillColors(colorGrid);
 }
 
@@ -30,7 +27,6 @@ function addHash(str) {
 }
 
 function fillColors(grid) {
-  console.log('fill colors ran');
   const container = document.getElementById('grid-container');
   grid.forEach((row) => {
     const newRowDiv = document.createElement('div');
