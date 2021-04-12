@@ -1,15 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-#color-form {
+body {
+  height: 100vh;
+  margin: 0;
   font-family: 'Roboto', sans-serif;
 }
 
+#grid-container {
+  --width: 95vw;
+  --grid: calc(var(--width) / var(--size));
+  text-align: center;
+
+  @media (min-width: 50rem) {
+    --width: 80vw;
+  }
+  
+  // overrides the screen-width media query above
+  @media (orientation: landscape) {
+    --width: 50vw;
+  }
+  
+  // overrides the orientation media query above
+  @media (min-width: 100rem) {
+    --width: 40vw;
+  }
+}
+
 .color-row {
-  height: 50px;
+  height: var(--grid);
+  width: 100vw;
 }
 
 .color-tile {
-  height: inherit;
-  width: 50px;
+  height: var(--grid);
+  width: var(--grid);
   display: inline-block;
 }
+
+// @media (min-width: 50rem) {
+//   #grid-container {
+//     --width: 80vw;
+//   }
+// }
+
+// // overrides the screen-width media query above
+// @media (orientation: landscape) {
+//   #grid-container {
+//     --width: 50vw;
+//   }
+// }
+
+// // overrides the orientation media query above
+// @media (min-width: 100rem) {
+//   #grid-container {
+//     --width: 40vw;
+//   }  
+// }
+
+
+// // would prefer to use these than having all the things in index.js
+// $body-margin: 8px;
+// $grid-size: 8;
+
+// #color-form {
+//   font-family: 'Roboto', sans-serif;
+//   font-weight: 300;
+// }
+
+// .color-row {
+//   // height: 50px;
+//   line-height: 0;
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .color-tile {
+//   // height: inherit;
+//   min-height: 15px;
+//   min-width: 15px;
+//   // width: calc((100vw - 2 * #{$body-margin}) / #{$grid-size});
+//   display: inline-block;
+// }

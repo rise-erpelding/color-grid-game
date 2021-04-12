@@ -6,7 +6,10 @@ function clearGridContainer() {
 }
 
 function fillColors(grid) {
+
   const container = document.getElementById('grid-container');
+  // sets the variable
+  container.style.setProperty('--size', grid.length);
   grid.forEach((row) => {
     const newRowDiv = document.createElement('div');
     newRowDiv.classList.add('color-row');
