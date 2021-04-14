@@ -1,4 +1,7 @@
 const checkRGBValidity = (num) => {
+  if (typeof num !== 'number') {
+    throw new TypeError('num must be a number')
+  }
   return (num >= 0 && num <= 255);
 }
 

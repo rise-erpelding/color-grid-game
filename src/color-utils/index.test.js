@@ -20,6 +20,12 @@ describe('checkRGBValidity function', () => {
   test('returns false for a number greater than 255', () => {
     expect(checkRGBValidity(260)).toBeFalsy();
   });
+
+  test('throws an error if an empty string is passed in', () => {
+    expect(() => {
+      checkRGBValidity('');
+    }).toThrow('num must be a number');
+  });
 });
 
 describe('convertRGBToHex function', () => {
@@ -43,11 +49,22 @@ describe('convertHexToRGB function', () => {
     expect(convertHexToRGB('#FFAA00')).toStrictEqual(rgbObj);
   });
 
+  test('turns a valid hex color without the hex symbol into rgb values', () => {
+    expect(convertHexToRGB('ffaa00')).toStrictEqual(rgbObj);
+  });
+
+  test('throws an error for hex input more than 6 characters', () => {
+    const notAHex = 'ffaa00f';
+    expect(() => {
+      convertHexToRGB(notAHex);
+    }).toThrow('not a valid hex');
+  });
+
   test('throws an error for invalid hex color input', () => {
     const invalidHex = '#ffaazz';
     expect(() => {
       convertHexToRGB(invalidHex);
-    }).toThrow();
+    }).toThrow('not a valid hex');
   });
 });
 
@@ -59,20 +76,20 @@ describe('componentToHex function', () => {
   test('throws an error if the input is not a number', () => {
     expect(() => {
       componentToHex('foo');
-    }).toThrow();
+    }).toThrow('rgbVal must be a number');
   });
 
   test('throws an error if the input is not a valid integer between 0 and 255', () => {
     expect(() => {
       componentToHex(-2);
-    }).toThrow();
+    }).toThrow('rgbVal must be an integer between 0 and 255, inclusive');
 
     expect(() => {
       componentToHex(12.5);
-    }).toThrow();
+    }).toThrow('rgbVal must be an integer between 0 and 255, inclusive');
 
     expect(() => {
       componentToHex(1000);
-    }).toThrow();
+    }).toThrow('rgbVal must be an integer between 0 and 255, inclusive');
   });
 });

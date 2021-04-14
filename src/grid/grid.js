@@ -1,7 +1,7 @@
 const { makeRow } = require('./row');
 
 const makeGrid = (gridSize, topLeftColor, topRightColor, bottomLeftColor, bottomRightColor) => {
-  const grid = new Array(gridSize);
+  const grid = [];
   const firstRow = 0;
   const lastRow = gridSize - 1;
   grid[firstRow] = makeRow(gridSize, topLeftColor, topRightColor);
@@ -10,7 +10,7 @@ const makeGrid = (gridSize, topLeftColor, topRightColor, bottomLeftColor, bottom
   // loop over each index and make an array representing the column
   for (let i = 0; i < gridSize; i++) {
     let column = makeRow(gridSize, grid[firstRow][i], grid[lastRow][i]);
-    for (let j = 1; j < lastRow; j++) {
+    for (let j = 1; j <= lastRow - 1; j++) {
       // if grid[j] doesn't exist yet create it 
       if (!grid[j]) {
         grid[j] = [];
