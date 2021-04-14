@@ -68,9 +68,9 @@ describe('makeStops function', () => {
   test('makes an array whose indices are numbers spaced within 1 digit of each other if (endVal - startVal)/(size - 1) is NOT a whole number', () => {
     createdStops = makeStops(4, 100, 116);
     expectedStops = [100, 105, 111, 116];
-    expect([createdStops[0]+ 5, createdStops[0] + 6]).toContainEqual(expectedStops[1]);
-    expect([createdStops[1]+ 5, createdStops[1] + 6]).toContainEqual(expectedStops[2]);
-    expect([createdStops[2]+ 5, createdStops[2] + 6]).toContainEqual(expectedStops[3]);
+    expect([createdStops[0] + 5, createdStops[0] + 6]).toContainEqual(expectedStops[1]);
+    expect([createdStops[1] + 5, createdStops[1] + 6]).toContainEqual(expectedStops[2]);
+    expect([createdStops[2] + 5, createdStops[2] + 6]).toContainEqual(expectedStops[3]);
   });
 
   test('throws an error if the size is an empty string', () => {
@@ -104,7 +104,7 @@ describe('makeStops function', () => {
     const tooLargeNumber = 260;
     const notIntegerNumber = 4.5;
     const validNumber = 100;
-    const size = 5;
+    size = 5;
     expect(() => {
       makeStops(size, tooSmallNumber, validNumber);
     }).toThrow('not a valid startVal or endVal');

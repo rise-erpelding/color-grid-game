@@ -1,4 +1,9 @@
-const {  checkRGBValidity, convertRGBToHex, convertHexToRGB, componentToHex } = require('./index');
+const {
+  checkRGBValidity,
+  convertRGBToHex,
+  convertHexToRGB,
+  componentToHex,
+} = require('./index');
 
 describe('checkRGBValidity function', () => {
   test('returns true for a number between 0 and 255', () => {

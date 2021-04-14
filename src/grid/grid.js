@@ -6,12 +6,11 @@ const makeGrid = (gridSize, topLeftColor, topRightColor, bottomLeftColor, bottom
   const lastRow = gridSize - 1;
   grid[firstRow] = makeRow(gridSize, topLeftColor, topRightColor);
   grid[lastRow] = makeRow(gridSize, bottomLeftColor, bottomRightColor);
-  
   // loop over each index and make an array representing the column
-  for (let i = 0; i < gridSize; i++) {
-    let column = makeRow(gridSize, grid[firstRow][i], grid[lastRow][i]);
-    for (let j = 1; j <= lastRow - 1; j++) {
-      // if grid[j] doesn't exist yet create it 
+  for (let i = 0; i < gridSize; i += 1) {
+    const column = makeRow(gridSize, grid[firstRow][i], grid[lastRow][i]);
+    for (let j = 1; j <= lastRow - 1; j += 1) {
+      // if grid[j] doesn't exist yet create it
       if (!grid[j]) {
         grid[j] = [];
       }
@@ -20,8 +19,8 @@ const makeGrid = (gridSize, topLeftColor, topRightColor, bottomLeftColor, bottom
     }
   }
   return grid;
-}
+};
 
 module.exports = {
-  makeGrid
-}
+  makeGrid,
+};
