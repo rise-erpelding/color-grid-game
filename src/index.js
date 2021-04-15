@@ -6,12 +6,9 @@ form.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
   clearGridContainer();
   event.preventDefault();
-  const topLeft = addHash(document.getElementById('top-left').value);
-  const topRight = addHash(document.getElementById('top-right').value);
-  const bottomLeft = addHash(document.getElementById('bottom-left').value);
-  const bottomRight = addHash(document.getElementById('bottom-right').value);
-  const gridSize = Number(document.getElementById('grid-size').value);
-  const colorGrid = makeGrid(gridSize, topLeft, topRight, bottomLeft, bottomRight);
+  const formData = new FormData(event.target);
+  [topLeft, topRight, bottomLeft, bottomRight, gridSize] = formData.values();
+  const colorGrid = makeGrid(Number(gridSize), topLeft, topRight, bottomLeft, bottomRight);
   fillColors(colorGrid);
 }
 
@@ -22,9 +19,9 @@ function clearGridContainer() {
 
 // probably some better validation for the hex values on this side of things would be nice too
 
-function addHash(str) {
-  return str.startsWith('#') ? str : '#' + str;
-}
+// function addHash(str) {
+//   return str.startsWith('#') ? str : '#' + str;
+// }
 
 function fillColors(grid) {
   const container = document.getElementById('grid-container');
