@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/sass/main.scss">
+  
   <title>Color Grid Game</title>
 </head>
 <body>
   <main>
-  <form id="color-form">
+  <form class="color-form">
     <div class="form-top-row">
       <input type="color" id="top-left" name="top-left" value="#ff0000">
       <label for="top-left">Pick top left color</label>
@@ -31,7 +34,7 @@
     <input type="submit" value="get colors">
     <input type="reset" value="reset form">
     </form>
-    <div id="grid-container"></div>
+    <div class="grid-container"></div>
   </main>
   <script src="./src/index.js"></script>
 </body>

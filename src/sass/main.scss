@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
 body {
   height: 100vh;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 main {
@@ -12,7 +11,7 @@ main {
   justify-content: center;
 }
 
-#color-form {
+.color-form {
   margin-bottom: 2rem;
   min-width: 95vw;
   margin: 2rem auto;
@@ -20,7 +19,7 @@ main {
   // if we do want to "center" the form, can add the media queries from below here
 }
 
-#grid-container {
+.grid-container {
   --width: 95vw;
   --grid: calc(var(--width) / var(--size));
   text-align: center;

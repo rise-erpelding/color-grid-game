@@ -1,13 +1,12 @@
 const { makeGrid } = require('./grid/grid');
 
 function clearGridContainer() {
-  const container = document.getElementById('grid-container');
+  const container = document.getElementsByClassName('grid-container')[0];
   container.innerHTML = '';
 }
 
 function fillColors(grid) {
-
-  const container = document.getElementById('grid-container');
+  const container = document.getElementsByClassName('grid-container')[0];
   // sets the variable
   container.style.setProperty('--size', grid.length);
   grid.forEach((row) => {
@@ -32,7 +31,7 @@ function handleSubmit(event) {
   fillColors(colorGrid);
 }
 
-const form = document.getElementById('color-form');
+const form = document.getElementsByClassName('color-form')[0];
 form.addEventListener('submit', handleSubmit);
 
 // probably some better validation for the hex values on this side of things would be nice too
