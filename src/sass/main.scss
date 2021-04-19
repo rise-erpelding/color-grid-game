@@ -6,78 +6,58 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#color-form {
+  margin-bottom: 2rem;
+  min-width: 95vw;
+  margin: 2rem auto;
+
+  // if we do want to "center" the form, can add the media queries from below here
+}
+
 #grid-container {
   --width: 95vw;
   --grid: calc(var(--width) / var(--size));
   text-align: center;
+  padding-bottom: 2rem;
 
   @media (min-width: 50rem) {
     --width: 80vw;
   }
   
-  // overrides the screen-width media query above
-  @media (orientation: landscape) {
-    --width: 50vw;
-  }
-  
-  // overrides the orientation media query above
   @media (min-width: 100rem) {
     --width: 40vw;
+  }
+
+  // if orientation is landscape, grid size is based on viewport height rather than width
+  @media (orientation: landscape) {
+    --width: 75vh;
   }
 }
 
 .color-row {
-  height: var(--grid);
+  // default height for browsers that don't understand css variables
+  height: 60px;
   width: 100vw;
+
+  @supports (--css: variables) {
+    height: var(--grid);
+  }
 }
 
 .color-tile {
-  height: var(--grid);
-  width: var(--grid);
+  // default height/width for browsers that don't understand css variables
+  height: 60px;
+  width: 60px;
   display: inline-block;
+
+  @supports (--css: variables) {
+    height: var(--grid);
+    width: var(--grid);
+  }
 }
-
-// @media (min-width: 50rem) {
-//   #grid-container {
-//     --width: 80vw;
-//   }
-// }
-
-// // overrides the screen-width media query above
-// @media (orientation: landscape) {
-//   #grid-container {
-//     --width: 50vw;
-//   }
-// }
-
-// // overrides the orientation media query above
-// @media (min-width: 100rem) {
-//   #grid-container {
-//     --width: 40vw;
-//   }  
-// }
-
-
-// // would prefer to use these than having all the things in index.js
-// $body-margin: 8px;
-// $grid-size: 8;
-
-// #color-form {
-//   font-family: 'Roboto', sans-serif;
-//   font-weight: 300;
-// }
-
-// .color-row {
-//   // height: 50px;
-//   line-height: 0;
-//   display: flex;
-//   justify-content: center;
-// }
-
-// .color-tile {
-//   // height: inherit;
-//   min-height: 15px;
-//   min-width: 15px;
-//   // width: calc((100vw - 2 * #{$body-margin}) / #{$grid-size});
-//   display: inline-block;
-// }
