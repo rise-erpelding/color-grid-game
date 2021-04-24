@@ -1,25 +1,9 @@
-const { makeGrid } = require('./grid/grid');
+import { makeGrid } from './grid/grid';
+import { fillColors, resetGame } from './board/board';
 
 function clearGridContainer() {
   const container = document.getElementsByClassName('grid-container')[0];
   container.innerHTML = '';
-}
-
-function fillColors(grid) {
-  const container = document.getElementsByClassName('grid-container')[0];
-  // sets the variable
-  container.style.setProperty('--size', grid.length);
-  grid.forEach((row) => {
-    const newRowDiv = document.createElement('div');
-    newRowDiv.classList.add('color-row');
-    container.appendChild(newRowDiv);
-    row.forEach((color) => {
-      const newColorDiv = document.createElement('div');
-      newRowDiv.appendChild(newColorDiv);
-      newColorDiv.style.backgroundColor = color;
-      newColorDiv.classList.add('color-tile');
-    });
-  });
 }
 
 function handleSubmit(event) {
@@ -28,14 +12,9 @@ function handleSubmit(event) {
   const formData = new FormData(event.target);
   const [topLeft, topRight, bottomLeft, bottomRight, gridSize] = formData.values();
   const colorGrid = makeGrid(Number(gridSize), topLeft, topRight, bottomLeft, bottomRight);
+  resetGame();
   fillColors(colorGrid);
 }
 
 const form = document.getElementsByClassName('color-form')[0];
 form.addEventListener('submit', handleSubmit);
-
-// probably some better validation for the hex values on this side of things would be nice too
-
-// function addHash(str) {
-//   return str.startsWith('#') ? str : '#' + str;
-// }
