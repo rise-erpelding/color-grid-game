@@ -54,9 +54,30 @@ main {
   height: 60px;
   width: 60px;
   display: inline-block;
+  text-align: left;
 
   @supports (--css: variables) {
     height: var(--grid);
     width: var(--grid);
   }
+}
+
+.u-tile-first-click {
+  box-shadow: inset 0 0 0 2px white;  
+}
+
+.u-tile-correct {
+  // need this for the pseudo element
+  position: relative;
+
+    &::after {
+    content: "\2713";
+    position: absolute;
+    padding: 0.35rem;
+    color: white;
+  }
+}
+
+.winner-header {
+  font-family: 'Roboto', sans-serif;
 }
