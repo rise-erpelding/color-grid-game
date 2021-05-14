@@ -2,7 +2,7 @@ import { makeGrid } from './grid/grid';
 import { fillColors, resetGame } from './board/board';
 
 function clearGridContainer() {
-  const container = document.getElementsByClassName('grid-container')[0];
+  const container = document.getElementsByClassName('cmp-color-grid')[0];
   container.innerHTML = '';
 }
 
@@ -16,5 +16,5 @@ function handleSubmit(event) {
   fillColors(colorGrid);
 }
 
-const form = document.getElementsByClassName('color-form')[0];
+const form = document.getElementsByClassName('cmp-color-form')[0];
 form.addEventListener('submit', handleSubmit);

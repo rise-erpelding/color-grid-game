@@ -12,29 +12,29 @@
 </head>
 <body>
   <main>
-  <form class="color-form">
-    <div class="form-top-row">
+  <form class="cmp-color-form">
+    <div class="cmp-color-form__top-row">
       <input type="color" id="top-left" name="top-left" value="#007bff">
       <label for="top-left">Pick top left color</label>
       <br>
       <input type="color" id="top-right" name="top-right" value="#01563e">
       <label for="top-right">Pick top right color</label>
     </div>
-    <div class="form-middle-row">
+    <div class="cmp-color-form__middle-row">
       <input type="color" id="bottom-left" name="bottom-left" value="#ae00ff">
       <label for="bottom-left">Pick bottom left color</label>
       <br>
       <input type="color" id="bottom-right" name="bottom-right" value="#eeff00">
       <label for="bottom-right">Pick bottom right color</label>
     </div>
-    <div class="form-bottom-row">
+    <div class="cmp-color-form__bottom-row">
       <input type="number" min="2" max="20" id="grid-size" name="grid-size" value="8">
       <label for="grid-size">Grid Size (2-20)</label>
     </div>
     <input type="submit" value="get colors">
     <input type="reset" value="reset form">
     </form>
-    <div class="grid-container"></div>
+    <div class="cmp-color-grid"></div>
   </main>
   <script src="./src/index.js"></script>
 </body>

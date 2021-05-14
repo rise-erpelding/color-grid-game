@@ -27,7 +27,7 @@ function addPlayButton(grid) {
   const playButton = document.createElement('button');
   playButton.innerHTML = 'Play game with this grid';
   playButton.classList.add('play-button');
-  const container = document.querySelector('.grid-container');
+  const container = document.querySelector('.cmp-color-grid');
   container.after(playButton);
   playButton.addEventListener('click', () => {
     startGame(grid);
@@ -46,21 +46,21 @@ function startGame(grid) {
 }
 
 function fillColors(grid) {
-  const container = document.getElementsByClassName('grid-container')[0];
+  const container = document.getElementsByClassName('cmp-color-grid')[0];
   container.style.setProperty('--size', grid.length);
   removeChildren(container);
   grid.forEach((row, rowIndex) => {
     const colorRow = document.createElement('div');
-    colorRow.classList.add('color-row');
+    colorRow.classList.add('cmp-color-grid__row');
     container.appendChild(colorRow);
     row.forEach((color, tileIndex) => {
       const colorTile = document.createElement('div');
       colorRow.appendChild(colorTile);
       colorTile.style.backgroundColor = color;
-      colorTile.classList.add('color-tile');
-      colorTile.classList.add(`color-tile-${rowIndex * grid.length + tileIndex}`);
+      colorTile.classList.add('cmp-color-grid__tile');
+      colorTile.classList.add(`cmp-color-grid__tile--${rowIndex * grid.length + tileIndex}`);
       colorTile.addEventListener('click', (e) => {
-        if (gameStarted && !colorTile.classList.contains('u-tile-correct')) {
+        if (gameStarted && !colorTile.classList.contains('cmp-color-grid__tile--correct')) {
           handleClickTile(e, rowIndex * grid.length + tileIndex);
         }
       });
@@ -80,9 +80,9 @@ function handleClickTile(e, tileIndex) {
   // check to see if initialClick is still null, ie not a number
   if (typeof initialClick !== 'number') {
     initialClick = tileIndex;
-    const tile = document.querySelector(`.color-tile-${tileIndex}`);
+    const tile = document.querySelector(`.cmp-color-grid__tile--${tileIndex}`);
     // TODO: adding this to change the style of this class later
-    tile.classList.add('u-tile-first-click');
+    tile.classList.add('cmp-color-grid__tile--first-click');
   } else {
     switchTiles(initialClick, tileIndex);
   }
