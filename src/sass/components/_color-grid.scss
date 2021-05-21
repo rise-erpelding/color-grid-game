@@ -1,6 +1,10 @@
 .cmp-color-grid {
   --width: 95vw;
   --grid: calc(var(--width) / var(--size));
+  --checkmark-circle-size: calc(var(--grid) / 5);
+  --checkmark-size: calc(var(--checkmark-circle-size) / 1.25); // I have no idea why this is the magic number, I feel like it should be 2
+  --checkmark-margin: calc(var(--checkmark-circle-size) / 5);
+
   text-align: center;
   margin-bottom: $spacing;
 
@@ -44,14 +48,24 @@
     }
 
     &--correct {
-      // need this for the pseudo element
       position: relative;
 
         &::after {
-        content: "\2713";
-        position: absolute;
-        padding: 0.35rem;
-        color: white;
+          content: "\2713"; // checkmark
+          line-height: calc(var(--checkmark-circle-size) + 0.5);
+          margin: var(--checkmark-margin);
+          font-size: var(--checkmark-size);
+          width: var(--checkmark-circle-size);
+          height: var(--checkmark-circle-size);
+          min-width: $min-checkmark-circle-size;
+          min-height: $min-checkmark-circle-size;
+          max-width: $max-checkmark-circle-size;
+          max-height: $max-checkmark-circle-size;
+          text-align: center;
+          position: absolute;
+          color: black;
+          background: white;
+          border-radius: 50%;
       }
     }
   }

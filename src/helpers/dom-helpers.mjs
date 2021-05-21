@@ -31,6 +31,11 @@ function removeGameElements() {
   removeElementByClass('.winner-header');
 }
 
+function addCSSProperty(name, value) {
+  const root = document.querySelector(':root');
+  root.style.setProperty(name, value);
+}
+
 export {
   removeElementByClass,
   removeChildren,
@@ -38,4 +43,5 @@ export {
   hideForm,
   showForm,
   removeGameElements,
+  addCSSProperty,
 };

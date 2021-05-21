@@ -10,6 +10,7 @@ import {
   removeElementByClass,
   removeChildren,
   hideForm,
+  addCSSProperty,
 } from '../helpers/dom-helpers';
 import { makeDefaultGrid } from '../form/form-defaults';
 
@@ -55,8 +56,8 @@ function fillColors(grid) {
   } else {
     currentGrid = grid;
   }
-  const container = document.getElementsByClassName('cmp-color-grid')[0];
-  container.style.setProperty('--size', currentGrid.length);
+  addCSSProperty('--size', grid.length);
+  const container = document.querySelector('.cmp-color-grid');
   removeChildren(container);
   currentGrid.forEach((row, rowIndex) => {
     const colorRow = document.createElement('div');
