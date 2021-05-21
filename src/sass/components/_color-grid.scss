@@ -48,10 +48,19 @@
       position: relative;
 
         &::after {
-        content: "\2713";
-        position: absolute;
-        padding: 0.35rem;
-        color: white;
+          content: "\2713"; // checkmark
+          $checkmark-size: 0.75rem;
+          font-size: 0.75rem; // root font-size is still 16px
+          margin: 0.25em;
+          padding: 0.166666667em 0.416666667em;
+          // padding: 2px 5px;
+          // padding: 0.125rem 0.3125rem;
+          // padding: calc(2/0.75rem) calc(5/0.75rem);
+          // padding: $checkmark-padding-vertical $checkmark-padding-horizontal;
+          position: absolute;
+          color: black;
+          background: white;
+          border-radius: 50%;
       }
     }
   }
