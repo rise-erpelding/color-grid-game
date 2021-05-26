@@ -9,7 +9,9 @@ import {
 import {
   removeElementByClass,
   removeChildren,
+  hideForm,
 } from '../helpers/dom-helpers';
+import { makeDefaultGrid } from '../form/form-defaults';
 
 let flatAnswerKey = null;
 let currentFlatGrid = null;
@@ -38,6 +40,7 @@ function startGame(grid) {
   // remove the shuffle button
   const playButton = document.querySelector('.play-button');
   playButton.remove();
+  hideForm();
   gameStarted = true;
   flatAnswerKey = flattenGrid(grid);
   const duplicatedColorGrid = duplicateGrid(grid);
@@ -46,10 +49,16 @@ function startGame(grid) {
 }
 
 function fillColors(grid) {
+  let currentGrid;
+  if (!grid) {
+    currentGrid = makeDefaultGrid();
+  } else {
+    currentGrid = grid;
+  }
   const container = document.getElementsByClassName('cmp-color-grid')[0];
-  container.style.setProperty('--size', grid.length);
+  container.style.setProperty('--size', currentGrid.length);
   removeChildren(container);
-  grid.forEach((row, rowIndex) => {
+  currentGrid.forEach((row, rowIndex) => {
     const colorRow = document.createElement('div');
     colorRow.classList.add('cmp-color-grid__row');
     container.appendChild(colorRow);
@@ -58,18 +67,18 @@ function fillColors(grid) {
       colorRow.appendChild(colorTile);
       colorTile.style.backgroundColor = color;
       colorTile.classList.add('cmp-color-grid__tile');
-      colorTile.classList.add(`cmp-color-grid__tile--${rowIndex * grid.length + tileIndex}`);
+      colorTile.classList.add(`cmp-color-grid__tile--${rowIndex * currentGrid.length + tileIndex}`);
       colorTile.addEventListener('click', (e) => {
         if (gameStarted && !colorTile.classList.contains('cmp-color-grid__tile--correct')) {
-          handleClickTile(e, rowIndex * grid.length + tileIndex);
+          handleClickTile(e, rowIndex * currentGrid.length + tileIndex);
         }
       });
     });
   });
   if (!flatAnswerKey) {
-    addPlayButton(grid);
+    addPlayButton(currentGrid);
   } else {
-    currentFlatGrid = flattenGrid(grid);
+    currentFlatGrid = flattenGrid(currentGrid);
     checkForWin(currentFlatGrid, flatAnswerKey);
   }
 }
@@ -81,7 +90,6 @@ function handleClickTile(e, tileIndex) {
   if (typeof initialClick !== 'number') {
     initialClick = tileIndex;
     const tile = document.querySelector(`.cmp-color-grid__tile--${tileIndex}`);
-    // TODO: adding this to change the style of this class later
     tile.classList.add('cmp-color-grid__tile--first-click');
   } else {
     switchTiles(initialClick, tileIndex);

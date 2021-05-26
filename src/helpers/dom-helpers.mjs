@@ -10,4 +10,32 @@ function removeChildren(parent) {
   }
 }
 
-export { removeElementByClass, removeChildren };
+function clearGridContainer() {
+  const container = document.getElementsByClassName('cmp-color-grid')[0];
+  container.innerHTML = '';
+}
+
+function hideForm() {
+  const form = document.querySelector('.cmp-color-form');
+  form.classList.add('util-hidden');
+}
+
+function showForm() {
+  const form = document.querySelector('.cmp-color-form');
+  form.classList.remove('util-hidden');
+}
+
+function removeGameElements() {
+  clearGridContainer();
+  removeElementByClass('.play-button');
+  removeElementByClass('.winner-header');
+}
+
+export {
+  removeElementByClass,
+  removeChildren,
+  clearGridContainer,
+  hideForm,
+  showForm,
+  removeGameElements,
+};
