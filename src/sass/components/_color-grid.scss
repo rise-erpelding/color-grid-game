@@ -49,22 +49,19 @@
 
         &::after {
           content: "\2713"; // checkmark
-          // start with checkmark size
-          $checkmark-circle-size: 1.5em;
-          $checkmark-size: $checkmark-circle-size - 0.75;
-          $checkmark-margin: calc(#{$checkmark-circle-size}/6);
-          font-size: $checkmark-size; // root font-size is still 16px
-          margin: $checkmark-margin;
-          height: $checkmark-circle-size;
-          width: $checkmark-circle-size;
+          --checkmark-circle-size: calc(var(--grid) / 5);
+          --checkmark-size: calc(var(--checkmark-circle-size) / 1.25); // I have no idea why this is the magic number, I feel like it should be 2
+          --checkmark-margin: calc(var(--checkmark-circle-size) / 5);
+          line-height: calc(var(--checkmark-circle-size) + 0.5);
+          margin: var(--checkmark-margin);
+          font-size: var(--checkmark-size);
+          width: var(--checkmark-circle-size);
+          height: var(--checkmark-circle-size);
+          min-width: $min-checkmark-circle-size;
+          min-height: $min-checkmark-circle-size;
+          max-width: $max-checkmark-circle-size;
+          max-height: $max-checkmark-circle-size;
           text-align: center;
-          line-height: calc(#{$checkmark-circle-size} + 0.1em);
-          // padding: 0.166666667em 0.416666667em;
-          // padding: 0.17em 0.417em;
-          // padding: 2px 5px;
-          // padding: 0.125rem 0.3125rem;
-          // padding: calc(2/0.75rem) calc(5/0.75rem);
-          // padding: $checkmark-padding-vertical $checkmark-padding-horizontal;
           position: absolute;
           color: black;
           background: white;
