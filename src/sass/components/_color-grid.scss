@@ -49,10 +49,18 @@
 
         &::after {
           content: "\2713"; // checkmark
-          $checkmark-size: 0.75rem;
-          font-size: 0.75rem; // root font-size is still 16px
-          margin: 0.25em;
-          padding: 0.166666667em 0.416666667em;
+          // start with checkmark size
+          $checkmark-circle-size: 1.5em;
+          $checkmark-size: $checkmark-circle-size - 0.75;
+          $checkmark-margin: calc(#{$checkmark-circle-size}/6);
+          font-size: $checkmark-size; // root font-size is still 16px
+          margin: $checkmark-margin;
+          height: $checkmark-circle-size;
+          width: $checkmark-circle-size;
+          text-align: center;
+          line-height: calc(#{$checkmark-circle-size} + 0.1em);
+          // padding: 0.166666667em 0.416666667em;
+          // padding: 0.17em 0.417em;
           // padding: 2px 5px;
           // padding: 0.125rem 0.3125rem;
           // padding: calc(2/0.75rem) calc(5/0.75rem);
