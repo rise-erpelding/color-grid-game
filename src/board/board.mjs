@@ -9,6 +9,7 @@ import {
 import {
   removeElementByClass,
   removeChildren,
+  addCSSProperty,
 } from '../helpers/dom-helpers';
 
 let flatAnswerKey = null;
@@ -46,8 +47,9 @@ function startGame(grid) {
 }
 
 function fillColors(grid) {
-  const container = document.getElementsByClassName('cmp-color-grid')[0];
-  container.style.setProperty('--size', grid.length);
+  addCSSProperty('--size', grid.length);
+  addCSSProperty('--blue', '#70ced7'); // temp for debugging purposes
+  const container = document.querySelector('.cmp-color-grid');
   removeChildren(container);
   grid.forEach((row, rowIndex) => {
     const colorRow = document.createElement('div');

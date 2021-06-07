@@ -10,4 +10,9 @@ function removeChildren(parent) {
   }
 }
 
-export { removeElementByClass, removeChildren };
+function addCSSProperty(name, value) {
+  const root = document.querySelector(':root');
+  root.style.setProperty(name, value);
+}
+
+export { removeElementByClass, removeChildren, addCSSProperty };
