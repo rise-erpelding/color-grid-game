@@ -13,6 +13,7 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-debugger': 'off',
+    'import/no-cycle': 'off',
   },
   overrides: [
     {

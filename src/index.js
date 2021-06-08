@@ -1,5 +1,3 @@
-import { initSandboxMode } from './flows/sandbox-mode';
-import { addButtonListeners } from './flows/mode-handlers';
+import { startApp } from './flows/initial-app';
 
-initSandboxMode(); // entry point into app
-addButtonListeners(); // enables navigation
+startApp();

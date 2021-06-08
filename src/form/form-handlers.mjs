@@ -1,6 +1,5 @@
 import { makeGrid } from '../grid/grid';
-import { fillColors, resetGame } from '../board/board';
-import { clearGridContainer } from '../helpers/dom-helpers';
+import { startPreGame } from '../flows/pre-game';
 
 function getFormData(event) {
   const formData = new FormData(event.target);
@@ -9,12 +8,10 @@ function getFormData(event) {
 }
 
 function handleSubmit(event) {
-  clearGridContainer();
   event.preventDefault();
   const [topLeft, topRight, bottomLeft, bottomRight, gridSize] = getFormData(event);
   const colorGrid = makeGrid(Number(gridSize), topLeft, topRight, bottomLeft, bottomRight);
-  resetGame();
-  fillColors(colorGrid);
+  startPreGame(colorGrid);
 }
 
 function addFormListener() {

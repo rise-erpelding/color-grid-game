@@ -8,20 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/sass/main.scss">
   
-  <title>Color Grid Game</title>
+  <title>Tiles!</title>
 </head>
 <body>
-  <header class="header"><h1 class="header__heading">Color Grid Game</h1></header>
-  <nav class="navigation">
-    <ul class="navigation__list">
-      <li class="navigation__list-item">
-        <button class="navigation__button navigation__button--sandbox">Sandbox Mode</button>
-      </li>
-      <li class="navigation__list-item">
-        <button class="navigation__button navigation__button--game">Game Mode</button>
-      </li>
-    </ul>
-  </nav>
+  <header class="cmp-header">
+    <h1 class="cmp-header__heading">Tiles!</h1>
+    <p class="cmp-header__paragraph"></p>
+  </header>
   <main>
   <form class="cmp-color-form">
     <div class="cmp-color-form__top-row">
@@ -38,12 +31,15 @@
       <input type="color" id="bottom-right" name="bottom-right" value="#eeff00">
       <label for="bottom-right">Pick bottom right color</label>
     </div>
-    <div class="cmp-color-form__bottom-row">
-      <input type="number" min="3" max="16" id="grid-size" name="grid-size" value="8">
-      <label for="grid-size">Grid Size (3-16)</label>
-    </div>
-    <input type="submit" value="get colors">
-    <input type="reset" value="reset form">
+    <fieldset class="cmp-color-form__bottom-row">
+      <legend class="cmp-color-form__difficulty-label">Difficulty</legend>
+      <label for="grid-size">Easy</label>
+      <input type="range" min="3" max="16" id="grid-size" name="grid-size" value="5">
+      <label for="grid-size">Hard</label>
+    </fieldset>
+    <nav class="cmp-color-form__navigation">
+      <input class="cmp-button" type="submit" value="get colors">
+    </nav>
     </form>
     <div class="cmp-color-grid"></div>
   </main>
