@@ -48,7 +48,6 @@ function startGame(grid) {
 
 function fillColors(grid) {
   addCSSProperty('--size', grid.length);
-  addCSSProperty('--blue', '#70ced7'); // temp for debugging purposes
   const container = document.querySelector('.cmp-color-grid');
   removeChildren(container);
   grid.forEach((row, rowIndex) => {
