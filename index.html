@@ -17,29 +17,23 @@
   </header>
   <main>
   <form class="cmp-color-form">
-    <div class="cmp-color-form__top-row">
-      <input type="color" id="top-left" name="top-left" value="#007bff">
-      <label for="top-left">Pick top left color</label>
-      <br>
-      <input type="color" id="top-right" name="top-right" value="#01563e">
-      <label for="top-right">Pick top right color</label>
+    <div class="cmp-color-form__row">
+      <input type="color" id="top-left" name="top-left" value="#ffffff" class="cmp-color-form__color-input" title="top left grid color">
+      <input type="color" id="top-right" name="top-right" value="#ffffff" class="cmp-color-form__color-input" title="top right grid color">
     </div>
-    <div class="cmp-color-form__middle-row">
-      <input type="color" id="bottom-left" name="bottom-left" value="#ae00ff">
-      <label for="bottom-left">Pick bottom left color</label>
-      <br>
-      <input type="color" id="bottom-right" name="bottom-right" value="#eeff00">
-      <label for="bottom-right">Pick bottom right color</label>
+    <div class="cmp-color-form__row">
+      <input type="color" id="bottom-left" name="bottom-left" value="#ffffff" class="cmp-color-form__color-input" title="bottom left grid color">
+      <input type="color" id="bottom-right" name="bottom-right" value="#ffffff" class="cmp-color-form__color-input" title="bottom right grid color">
     </div>
-    <fieldset class="cmp-color-form__bottom-row">
+    <fieldset class="cmp-color-form__difficulty">
       <legend class="cmp-color-form__difficulty-label">Difficulty</legend>
       <label for="grid-size">Easy</label>
       <input type="range" min="3" max="16" id="grid-size" name="grid-size" value="5">
       <label for="grid-size">Hard</label>
     </fieldset>
     <nav class="cmp-color-form__navigation">
-      <button class="cmp-button cmp-color-form__surprise-me" type="button">Surprise me</button>
-      <input class="cmp-button" type="submit" value="get colors">
+      <button class="cmp-button cmp-color-form__surprise-me" type="button" title="pick colors for me">Surprise me</button>
+      <input class="cmp-button" type="submit" value="get colors" title="get color grid">
     </nav>
     </form>
     <div class="cmp-color-grid"></div>
