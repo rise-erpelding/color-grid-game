@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { makeGrid } from '../grid/grid';
 import { startPreGame } from '../flows/pre-game';
 
