@@ -1,3 +1,5 @@
+import { enableSubmit } from './color-validator';
+
 const themes = [
 // [topleft, topright, bottomleft, bottomright],
   ['#ef476f', '#ffd166', '#06d6ad', '#118ab2'],
@@ -48,6 +50,7 @@ function fillWithSurpriseTheme() {
   const surpriseTheme = getRandomItem(themes);
   surpriseTheme.forEach((color, index) => {
     setFormValue(inputIds[index], color);
+    enableSubmit();
   });
 }
 

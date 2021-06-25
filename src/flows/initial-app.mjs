@@ -7,6 +7,7 @@ import {
   updateParagraphText,
   resetForm,
 } from '../helpers/dom-helpers';
+import { disableSubmitButtonUntilColorsPicked } from '../form/color-validator';
 
 const instructionalText = 'Pick your colors to begin or use the Surprise me button below.';
 
@@ -21,6 +22,7 @@ function startApp() {
 
 function restartApp() {
   resetForm();
+  disableSubmitButtonUntilColorsPicked();
   startApp();
 }
 

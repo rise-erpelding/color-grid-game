@@ -1,3 +1,3 @@
-import { startApp } from './flows/initial-app';
+import { restartApp } from './flows/initial-app';
 
-startApp();
+restartApp();
