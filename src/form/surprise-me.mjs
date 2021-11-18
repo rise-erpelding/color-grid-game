@@ -33,6 +33,11 @@ const themes = [
   ['#d94e67', '#f2d8a7', '#a68572', '#73503c'],
   ['#379392', '#4fb0c6', '#4f86c6', '#6c49b8'],
   ['#ffcad4', '#b0d0d3', '#c08497', '#f7af9d'],
+  ['#ff8811', '#f4d06f', '#fff8f0', '#9dd9d2'],
+  ['#d68fd6', '#000009', '#defff2', '#417b5a'],
+  ['#f9f9f9', '#ffe45e', '#3fa8ee', '#5be6a5'],
+  ['#f89d0d', '#faf200', '#a8d5e2', '#548c2f'],
+  ['#f9fbef', '#daefb3', '#d64550', '#ea9e8d'],
 ];
 
 const inputIds = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
