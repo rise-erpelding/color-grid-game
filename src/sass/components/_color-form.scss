@@ -17,6 +17,7 @@
     box-shadow: 0px 8px 15px gainsboro; // halp this disappears in safari why
     cursor: pointer;
     transition: opacity 0.3s ease;
+    border-radius: initial;
 
     &::-webkit-color-swatch-wrapper {
       padding: 0;
