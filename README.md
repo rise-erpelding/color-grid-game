@@ -2,6 +2,8 @@
 
 A tile-switching game where players must position their tiles in a shuffled grid so that they are in correct color order.
 
+Play it at https://rise-erp-tiles.netlify.app/
+
 
 ## Features
 * Sandbox mode: Create a color grid by picking 4 corner colors and a grid size (currently 2-20)
