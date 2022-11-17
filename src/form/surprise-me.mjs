@@ -27,7 +27,7 @@ const themes = [
   ['#e41749', '#f5587b', '#ff8a5c', '#fff591'],
   ['#de4307', '#f29c2b', '#f6d04d', '#8bc24c'],
   ['#de6449', '#791e94', '#fffff2', '#41d3bd'],
-  ['#996699', '#cccccc', '#000000', '#006699'],
+  ['#996699', '#cccccc', '#000000', '#006699'], // moody
   ['#03243a', '#558ad8', '#c5c5c5', '#74c239'],
   ['#fffff5', '#ffda8e', '#80d4f6', '#5c196b'],
   ['#d94e67', '#f2d8a7', '#a68572', '#73503c'],
@@ -38,6 +38,10 @@ const themes = [
   ['#f9f9f9', '#ffe45e', '#3fa8ee', '#5be6a5'],
   ['#f89d0d', '#faf200', '#a8d5e2', '#548c2f'],
   ['#f9fbef', '#daefb3', '#d64550', '#ea9e8d'],
+  ['#EE2F2F', '#4BB45D', '#F4EFDC', '#886C59'], // mushroom core
+  ['#473198', '#66BAA7', '#CAC1EB', '#F1F9F7'], // complement
+  ['#FFCAD4', '#B0D0D3', '#C08497', '#F7AF9D'], // cotton candy sunset
+  ['#DE6449', '#791E94', '#FFFFF2', '#41D3BD'], // amused
 ];
 
 const inputIds = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
