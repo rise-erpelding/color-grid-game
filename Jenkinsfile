@@ -3,8 +3,19 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                echo 'building...'
                 sh 'node --version'
             }
+        }
+        stage('test') {
+          steps {
+            echo 'testing...'
+          }
+        }
+        stage('lint') {
+          steps {
+            echo 'linting...'
+          }
         }
     }
 }
