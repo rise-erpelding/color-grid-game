@@ -9,14 +9,14 @@ pipeline {
             }
         }
         stage('test') {
-          steps {
-            echo 'testing...'
-          }
+            steps {
+              sh 'npm test'
+            }
         }
         stage('lint') {
-          steps {
-            echo 'linting...'
-          }
+            steps {
+              sh 'npm run lint'
+            }
         }
     }
 }
