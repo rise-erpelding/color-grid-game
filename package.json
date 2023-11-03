@@ -2,13 +2,14 @@
   "name": "color-grid-game",
   "version": "1.0.0",
   "description": "color grid game",
-  "main": "index.js",
+  "source": "index.html",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel",
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "test:coverage": "npm test -- --coverage",
-    "lint": "eslint ./ --ignore-path .gitignore"
+    "lint": "eslint ./ --ignore-path .gitignore",
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
@@ -22,15 +23,13 @@
   "homepage": "https://github.com/rise-erpelding/color-grid-game#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.3",
-    "@stryker-mutator/core": "^4.5.1",
-    "@stryker-mutator/jest-runner": "^4.5.1",
+    "@stryker-mutator/core": "^7.3.0",
+    "@stryker-mutator/jest-runner": "^7.3.0",
     "eslint": "^7.24.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "jest": "^26.6.3",
+    "parcel": "^2.10.2",
     "sass": "^1.32.8"
-  },
-  "dependencies": {
-    "parcel": "^2.0.0"
   }
 }
