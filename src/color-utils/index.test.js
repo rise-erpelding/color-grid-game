@@ -3,6 +3,8 @@ const {
   convertRGBToHex,
   convertHexToRGB,
   componentToHex,
+  convertRGBToHSL,
+  convertHSLToRGB,
 } = require('./index');
 
 describe('checkRGBValidity function', () => {
@@ -96,5 +98,85 @@ describe('componentToHex function', () => {
     expect(() => {
       componentToHex(1000);
     }).toThrow('rgbVal must be an integer between 0 and 255, inclusive');
+  });
+});
+
+describe('convertRGBToHSL function', () => {
+  test('throws an error if r, g, or b is not between 0 and 255', () => {
+    expect(() => {
+      convertRGBToHSL(-2, 0, 123);
+    }).toThrow('rgb values must be between 0 and 255');
+    expect(() => {
+      convertRGBToHSL(34, 1424, 123);
+    }).toThrow('rgb values must be between 0 and 255');
+    expect(() => {
+      convertRGBToHSL(34, 0, 359);
+    }).toThrow('rgb values must be between 0 and 255');
+  });
+
+  test('converts rgb to hsl', () => {
+    // convert yellow rgb(255, 255, 0) to hsl(60, 100%, 50%)
+    expect(convertRGBToHSL(255, 255, 0)).toEqual({
+      h: 60,
+      s: 100,
+      l: 50,
+    });
+    // convert pale blue rgb(110, 110, 247) to hsl(240, 90%, 70%)
+    expect(convertRGBToHSL(110, 110, 247)).toEqual({
+      h: 240,
+      s: 90,
+      l: 70,
+    });
+    // convert purple rgb(143, 0, 153) to hsl(296, 100%, 30%)
+    expect(convertRGBToHSL(143, 0, 153)).toEqual({
+      h: 296,
+      s: 100,
+      l: 30,
+    });
+    // convert black rgb(0, 0, 0) to hsl(0, 0%, 0%)
+    expect(convertRGBToHSL(0, 0, 0)).toEqual({
+      h: 0,
+      s: 0,
+      l: 0,
+    });
+    // convert gray rgb(130, 130, 130) to hsl(0, 0%, 51%)
+    expect(convertRGBToHSL(130, 130, 130)).toEqual({
+      h: 0,
+      s: 0,
+      l: 51,
+    });
+  });
+});
+
+describe('convertHSLToRGB function', () => {
+  // convert yellow hsl(60, 100%, 50%) to rgb(255, 255, 0)
+  expect(convertHSLToRGB(60, 100, 50)).toEqual({
+    r: 255,
+    g: 255,
+    b: 0,
+  });
+  // convert pale blue hsl(240, 90%, 70%) to rgb(110, 110, 247)
+  expect(convertHSLToRGB(240, 90, 70)).toEqual({
+    r: 110,
+    g: 110,
+    b: 247,
+  });
+  // convert purple hsl(296, 100%, 30%) to rgb(143, 0, 153)
+  expect(convertHSLToRGB(296, 100, 30)).toEqual({
+    r: 143,
+    g: 0,
+    b: 153,
+  });
+  // convert black hsl(0, 0%, 0%) to rgb(0, 0, 0)
+  expect(convertHSLToRGB(0, 0, 0)).toEqual({
+    r: 0,
+    g: 0,
+    b: 0,
+  });
+  // convert gray hsl(0, 0%, 51%) to rgb(130, 130, 130)
+  expect(convertHSLToRGB(0, 0, 51)).toEqual({
+    r: 130,
+    g: 130,
+    b: 130,
   });
 });
