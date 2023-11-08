@@ -1,10 +1,14 @@
 const { convertHexToRGB, convertRGBToHex } = require('../color-utils');
 const { makeStops } = require('./stops');
 
-const makeRow = (length, startColor, endColor) => {
+const makeRow = (length, startColor, endColor, hslOn) => {
   const row = new Array(length);
   const startColorRGB = convertHexToRGB(startColor);
   const endColorRGB = convertHexToRGB(endColor);
+
+  if (hslOn) {
+    console.log('hsl mode on');
+  }
 
   const rStops = makeStops(length, startColorRGB.r, endColorRGB.r);
   const gStops = makeStops(length, startColorRGB.g, endColorRGB.g);

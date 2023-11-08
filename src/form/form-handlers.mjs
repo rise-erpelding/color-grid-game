@@ -4,14 +4,15 @@ import { startPreGame } from '../flows/pre-game';
 
 function getFormData(event) {
   const formData = new FormData(event.target);
-  const [topLeft, topRight, bottomLeft, bottomRight, gridSize] = formData.values();
-  return [topLeft, topRight, bottomLeft, bottomRight, gridSize];
+  const [topLeft, topRight, bottomLeft, bottomRight, gridSize, hsl] = formData.values();
+  const hslOn = hsl === 'on';
+  return [topLeft, topRight, bottomLeft, bottomRight, gridSize, hslOn];
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-  const [topLeft, topRight, bottomLeft, bottomRight, gridSize] = getFormData(event);
-  const colorGrid = makeGrid(Number(gridSize), topLeft, topRight, bottomLeft, bottomRight);
+  const [topLeft, topRight, bottomLeft, bottomRight, gridSize, hslOn] = getFormData(event);
+  const colorGrid = makeGrid(Number(gridSize), topLeft, topRight, bottomLeft, bottomRight, hslOn);
   startPreGame(colorGrid);
 }
 

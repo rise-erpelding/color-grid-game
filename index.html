@@ -25,12 +25,19 @@
       <input type="color" id="bottom-left" name="bottom-left" value="#ffffff" class="cmp-color-form__color-input" title="bottom left grid color">
       <input type="color" id="bottom-right" name="bottom-right" value="#ffffff" class="cmp-color-form__color-input" title="bottom right grid color">
     </div>
-    <fieldset class="cmp-color-form__difficulty">
-      <legend class="cmp-color-form__difficulty-label">Difficulty</legend>
-      <label for="grid-size">Easy</label>
-      <input type="range" min="3" max="16" id="grid-size" name="grid-size" value="5">
-      <label for="grid-size">Hard</label>
-    </fieldset>
+    <div class="cmp-color-form__options">
+      <fieldset class="cmp-color-form__difficulty">
+        <legend class="cmp-color-form__difficulty-label">Difficulty</legend>
+        <label for="grid-size">Easy</label>
+        <input type="range" min="3" max="16" id="grid-size" name="grid-size" value="5">
+        <label for="grid-size">Hard</label>
+      </fieldset>
+      <fieldset class="cmp-color-form__color-mode">
+        <legend class="cmp-color-form__color-mode-label">Color Mode</legend>
+        <input type="checkbox" id="hsl" name="hsl" checked />
+        <label for="hsl">HSL on</label>
+      </fieldset>
+    </div>
     <nav class="cmp-color-form__navigation">
       <button class="cmp-button cmp-color-form__surprise-me" type="button" title="pick colors for me">Surprise me</button>
       <input class="cmp-button cmp-color-form__submit" type="submit" value="get colors" title="get color grid">
