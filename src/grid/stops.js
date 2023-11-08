@@ -1,6 +1,6 @@
-const { checkRGBValidity, isInteger } = require('../color-utils');
+const { isInteger } = require('../color-utils');
 
-const makeStops = (size, startVal, endVal) => {
+const checkSize = (size) => {
   if (typeof size !== 'number') {
     throw new TypeError('size must be a number');
   }
@@ -10,15 +10,11 @@ const makeStops = (size, startVal, endVal) => {
   if (!isInteger(size)) {
     throw new Error('size must be an integer');
   }
-  // confirm that we're given a valid integer between 0 and 255, inclusive
-  if (
-    !checkRGBValidity(startVal)
-    || !checkRGBValidity(endVal)
-    || !isInteger(startVal)
-    || !isInteger(endVal)
-  ) {
-    throw new Error('not a valid startVal or endVal');
-  }
+};
+
+const makeStops = (size, startVal, endVal) => {
+  checkSize(size);
+
   const stops = [];
   const lastElement = size - 1;
   // make the first element the startVal
