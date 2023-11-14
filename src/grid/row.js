@@ -21,13 +21,12 @@ const checkRGBValues = (startColor, endColor) => {
   });
 };
 
-const makeRow = (length, startColor, endColor, hslMode) => {
+const makeRow = (length, startColor, endColor, hslOn) => {
   const row = new Array(length);
   const startColorRGB = convertHexToRGB(startColor);
   const endColorRGB = convertHexToRGB(endColor);
-  checkRGBValues(startColorRGB, endColorRGB);
 
-  if (hslMode === 'hsl') {
+  if (hslOn) {
     // convert to hsl first to convert h, s, l vals instead of r, g, b vals
     const startColorHSL = convertRGBToHSL(startColorRGB.r, startColorRGB.g, startColorRGB.b);
     const endColorHSL = convertRGBToHSL(endColorRGB.r, endColorRGB.g, endColorRGB.b);
@@ -40,7 +39,9 @@ const makeRow = (length, startColor, endColor, hslMode) => {
       const { r, g, b } = convertHSLToRGB(hStops[i], sStops[i], lStops[i]);
       row[i] = convertRGBToHex(r, g, b);
     }
-  } else if (hslMode === 'rgb') {
+  } else {
+    checkRGBValues(startColorRGB, endColorRGB);
+
     const rStops = makeStops(length, startColorRGB.r, endColorRGB.r);
     const gStops = makeStops(length, startColorRGB.g, endColorRGB.g);
     const bStops = makeStops(length, startColorRGB.b, endColorRGB.b);
@@ -48,9 +49,6 @@ const makeRow = (length, startColor, endColor, hslMode) => {
     for (let i = 0; i < row.length; i += 1) {
       row[i] = convertRGBToHex(rStops[i], gStops[i], bStops[i]);
     }
-  } else {
-    // use rgb but find hsl midpoint
-    console.log('WHOOPS UNDER CONSTRUCTION, COME BACK LATER');
   }
   return row;
 };

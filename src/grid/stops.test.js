@@ -99,20 +99,4 @@ describe('makeStops function', () => {
     }).toThrow('size must be at least 2');
   });
 
-  test('throws an error if the startVal or endVal is not a valid integer', () => {
-    const tooSmallNumber = -5;
-    const tooLargeNumber = 260;
-    const notIntegerNumber = 4.5;
-    const validNumber = 100;
-    size = 5;
-    expect(() => {
-      makeStops(size, tooSmallNumber, validNumber);
-    }).toThrow('not a valid startVal or endVal');
-    expect(() => {
-      makeStops(size, validNumber, tooLargeNumber);
-    }).toThrow('not a valid startVal or endVal');
-    expect(() => {
-      makeStops(size, notIntegerNumber, validNumber);
-    }).toThrow('not a valid startVal or endVal');
-  });
 });

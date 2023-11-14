@@ -6,20 +6,15 @@ function getFormDefaults() {
   // eslint-disable-next-line max-len
   const [topLeft, topRight, bottomLeft, bottomRight] = [colorInputs[0].value, colorInputs[1].value, colorInputs[2].value, colorInputs[3].value];
   const gridSize = document.querySelector('#grid-size').value;
-  const colorModeRadioButtons = document.getElementsByName('color-mode');
-  let colorMode;
-  colorModeRadioButtons.forEach((radioButton) => {
-    if (radioButton.checked) {
-      colorMode = radioButton.value;
-    }
-  });
+  const hslInput = document.querySelector('#hsl');
+  const hslOn = hslInput.checked;
   const formDefaults = {
     topLeft,
     topRight,
     bottomLeft,
     bottomRight,
     gridSize,
-    colorMode,
+    hslOn,
   };
   return formDefaults;
 }
@@ -32,7 +27,7 @@ function makeDefaultGrid() {
     topRight,
     bottomLeft,
     bottomRight,
-    colorMode,
+    hslOn,
   } = defaultFormValues;
   const colorGrid = makeGrid(
     Number(gridSize),
@@ -40,7 +35,7 @@ function makeDefaultGrid() {
     topRight,
     bottomLeft,
     bottomRight,
-    colorMode,
+    hslOn,
   );
   return colorGrid;
 }
