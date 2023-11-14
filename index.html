@@ -34,8 +34,12 @@
       </fieldset>
       <fieldset class="cmp-color-form__color-mode">
         <legend class="cmp-color-form__color-mode-label">Color Mode</legend>
-        <input type="checkbox" id="hsl" name="hsl" checked />
-        <label for="hsl">HSL on</label>
+        <input type="radio" id="rgb-hsl" name="color-mode" value="rgb-hsl" />
+        <label for="rgb-hsl">RGB with HSL midpoint (recommended)</label>
+        <input type="radio" id="rgb" name="color-mode" value="rgb" />
+        <label for="rgb">RGB</label>
+        <input type="radio" id="hsl" name="color-mode" value="hsl" />
+        <label for="hsl">HSL</label>
       </fieldset>
     </div>
     <nav class="cmp-color-form__navigation">
