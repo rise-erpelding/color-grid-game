@@ -117,6 +117,65 @@ const convertHSLToRGB = (hue, saturation, light) => {
   return { r, g, b };
 };
 
+const isValidHue = (hue) => hue >= 0 && hue < 360;
+
+// if you take the simple average of a blue hue and a red hue, you get green
+// we want the algorithm to match color theory better, blue + red = purple
+// see https://codepen.io/riseerpelding/pen/PoVJbrJ to see a similar version in action
+const calculateMidpointHue = (hue1, hue2) => {
+  if (!isValidHue(hue1) || !isValidHue(hue2)) {
+    throw new Error('hues must not be less than 0 or greater than 359');
+  }
+  if (!isInteger(hue1) || !isInteger(hue2)) {
+    throw new Error('hues must be integer numbers');
+  }
+
+  // calculate two means, one is the basic average
+  // the other is +/- 180
+  const mean = Math.ceil((hue1 + hue2) / 2);
+  const altMean = mean < 180 ? mean + 180 : mean - 180;
+
+  // check which mean is closer to the values
+  const hue1MeanDifference = Math.abs(hue1 - mean);
+  const hue2MeanDifference = Math.abs(hue2 - mean);
+  const hue1AltMeanDifference = Math.abs(hue1 - altMean);
+  const hue2AltMeanDifference = Math.abs(hue2 - altMean);
+  const smallestDifference = Math.min(
+    hue1MeanDifference,
+    hue2MeanDifference,
+    hue1AltMeanDifference,
+    hue2AltMeanDifference,
+  );
+
+  // a few manual adjustments for exceptions to this rule
+  // because we want color theory to make sense
+  // these are pretty subjective but liberal color definitions
+  const isYellow = (hue) => hue > 42 && hue < 70;
+  const isBlue = (hue) => hue > 170 && hue < 275;
+  const isGreen = (hue) => hue > 70 && hue < 165;
+  const isRed = (hue) => (hue >= 0 && hue < 15) || (hue > 305);
+  const isPurple = (hue) => hue > 255 && hue < 305;
+  const isOrange = (hue) => hue > 15 && hue < 45;
+  // adjust for yellow and blue to always make green
+  if ((isYellow(hue1) && isBlue(hue2)) || (isBlue(hue1) && isYellow(hue2))) {
+    return isGreen(mean) ? mean : altMean;
+  }
+  // adjust for yellow and red to always make orange
+  if ((isYellow(hue1) && isRed(hue2)) || (isRed(hue1) && isYellow(hue2))) {
+    return isOrange(mean) ? mean : altMean;
+  }
+  // adjust for blue and red to always make purple
+  if ((isRed(hue1) && isBlue(hue2)) || (isBlue(hue1) && isRed(hue2))) {
+    return isPurple(mean) ? mean : altMean;
+  }
+  // otherwise if we're mixing more secondary colors
+  // return the mean that is closest to the values
+  if (smallestDifference === hue1MeanDifference || smallestDifference === hue2MeanDifference) {
+    return mean;
+  }
+  return altMean;
+};
+
 module.exports = {
   checkRGBValidity,
   convertRGBToHex,
@@ -125,4 +184,5 @@ module.exports = {
   convertHSLToRGB,
   componentToHex,
   isInteger,
+  calculateMidpointHue,
 };
