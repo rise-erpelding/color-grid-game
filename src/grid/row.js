@@ -5,8 +5,9 @@ const {
   isInteger,
   convertRGBToHSL,
   convertHSLToRGB,
+  calculateMidpointHue,
 } = require('../color-utils');
-const { makeStops } = require('./stops');
+const { makeStops, makeHueStops, makeStopsWithGivenMidpoint } = require('./stops');
 
 const checkRGBValues = (startColor, endColor) => {
   const validateColorValue = (color, component) => {
@@ -21,6 +22,8 @@ const checkRGBValues = (startColor, endColor) => {
   });
 };
 
+const isEven = (number) => number % 2 === 0;
+
 const makeRow = (length, startColor, endColor, hslOn) => {
   const row = new Array(length);
   const startColorRGB = convertHexToRGB(startColor);
@@ -31,13 +34,23 @@ const makeRow = (length, startColor, endColor, hslOn) => {
     const startColorHSL = convertRGBToHSL(startColorRGB.r, startColorRGB.g, startColorRGB.b);
     const endColorHSL = convertRGBToHSL(endColorRGB.r, endColorRGB.g, endColorRGB.b);
 
-    const hStops = makeStops(length, startColorHSL.h, endColorHSL.h);
-    const sStops = makeStops(length, startColorHSL.s, endColorHSL.s);
-    const lStops = makeStops(length, startColorHSL.l, endColorHSL.l);
+    const midpointHue = calculateMidpointHue(startColorHSL.h, endColorHSL.h);
+    // console.log("start mid end hue", [startColorHSL.h, midpointHue, endColorHSL.h]);
+
+    const midpointSaturation = Math.ceil((startColorHSL.s + endColorHSL.s) / 2);
+    // console.log("start mid end saturation", [startColorHSL.s, midpointSaturation, endColorHSL.s]);
+    
+    const midpointLightness = Math.ceil((startColorHSL.l + endColorHSL.l) / 2);
+    // console.log("start mid end lightness", [startColorHSL.l, midpointLightness, endColorHSL.l]);
+    console.log("midpoint hsl", [midpointHue, midpointSaturation, midpointLightness]);
+    const midpointRGB = convertHSLToRGB(midpointHue, midpointSaturation, midpointLightness);
+
+    const rStops = makeStopsWithGivenMidpoint(length, startColorRGB.r, midpointRGB.r, endColorRGB.r);
+    const gStops = makeStopsWithGivenMidpoint(length, startColorRGB.g, midpointRGB.g, endColorRGB.g);
+    const bStops = makeStopsWithGivenMidpoint(length, startColorRGB.b, midpointRGB.b, endColorRGB.b);
 
     for (let i = 0; i < row.length; i += 1) {
-      const { r, g, b } = convertHSLToRGB(hStops[i], sStops[i], lStops[i]);
-      row[i] = convertRGBToHex(r, g, b);
+      row[i] = convertRGBToHex(rStops[i], gStops[i], bStops[i]);
     }
   } else {
     checkRGBValues(startColorRGB, endColorRGB);

@@ -35,6 +35,30 @@ const makeStops = (size, startVal, endVal) => {
 
 const isEven = (number) => number % 2 === 0;
 
+// TODO: tests
+const makeStopsWithGivenMidpoint = (size, startVal, midpointVal, endVal) => {
+  // basically ensures that if we have an even # size, we round up
+  const middleIndex = Math.ceil((size - 1) / 2);
+  const middleArraySize = middleIndex + 1;
+
+  const firstArray = makeStops(middleArraySize, startVal, midpointVal);
+  const secondArray = makeStops(middleArraySize, midpointVal, endVal);
+
+  // prepare the two arrays to be concatenated
+  // handle odd and even sizes differently
+  if (isEven(size)) { // even
+    // cut out the midpoint altogether from each array
+    // instead values will approach that midpoint
+    firstArray.pop(); // cut last from first array
+    secondArray.shift(); // cut first from second array
+  } else { // odd
+    // remove only the first element from the secondArray since it exists in both
+    secondArray.shift();
+  }
+  const stops = firstArray.concat(secondArray);
+  return stops;
+}
+
 const makeHueStops = (size, startVal, endVal) => {
   // basically ensures that if we have an even # size, we round up
   const middleIndex = Math.ceil((size - 1) / 2);
@@ -62,4 +86,5 @@ const makeHueStops = (size, startVal, endVal) => {
 module.exports = {
   makeStops,
   makeHueStops,
+  makeStopsWithGivenMidpoint,
 };

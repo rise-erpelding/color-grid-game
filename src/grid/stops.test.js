@@ -1,4 +1,4 @@
-const { makeStops, makeHueStops } = require('./stops');
+const { makeStops, makeHueStops, makeStopsWithGivenMidpoint } = require('./stops');
 
 describe('makeStops function', () => {
   let createdStops;
@@ -117,5 +117,25 @@ describe('makeHueStops function', () => {
     expect(makeHueStops(10, 60, 350))
       .toStrictEqual([60, 53, 46, 39, 32, 90, 155, 220, 285, 350]);
     expect(makeHueStops(10, 60, 350).length).toBe(10);
+  });
+});
+
+describe('makeStopsWithGivenMidpoint function', () => {
+  test('makes stops with appropriate hues and sizes', () => {
+    // expect(makeHueStops(2, 0, 180)).toStrictEqual([0, 180]);
+    // expect(makeHueStops(2, 0, 180).length).toBe(2);
+    // expect(makeHueStops(3, 0, 180)).toStrictEqual([0, 270, 180]);
+    // expect(makeHueStops(3, 0, 180).length).toBe(3);
+    // expect(makeHueStops(4, 0, 180)).toStrictEqual([0, 135, 225, 180]);
+    // expect(makeHueStops(4, 0, 180).length).toBe(4);
+    // expect(makeHueStops(5, 0, 180)).toStrictEqual([0, 135, 270, 225, 180]);
+    // expect(makeHueStops(5, 0, 180).length).toBe(5);
+    // expect(makeHueStops(5, 258, 64)).toStrictEqual([258, 210, 161, 113, 64]);
+    // expect(makeHueStops(5, 258, 64).length).toBe(5);
+    // expect(makeHueStops(6, 305, 110)).toStrictEqual([305, 213, 120, 55, 83, 110]);
+    // expect(makeHueStops(6, 305, 110).length).toBe(6);
+    // expect(makeHueStops(10, 60, 350))
+    //   .toStrictEqual([60, 53, 46, 39, 32, 90, 155, 220, 285, 350]);
+    // expect(makeHueStops(10, 60, 350).length).toBe(10);
   });
 });
