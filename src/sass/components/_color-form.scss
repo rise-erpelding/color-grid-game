@@ -32,12 +32,19 @@
     }
   }
 
+  &__options {
+    margin-top: 2.5rem;
+  }
+
   &__difficulty-label {
     width: 100%; // for Firefox
   }
 
   &__difficulty {
-    margin-top: 2.5rem;
     border: none;
+  }
+
+  &__color-mode {
+    display: inline-block;
   }
 }
