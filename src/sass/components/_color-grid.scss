@@ -68,21 +68,5 @@
           border-radius: 50%;
       }
     }
-
-    // tooltip
-    &:hover::before {
-      content: attr(title);
-      position: absolute;
-      background-color: #000;
-      color: #fff;
-      padding: 5px;
-      border-radius: 5px;
-      bottom: 125%; /* Position the tooltip above the element */
-      left: 50%; /* Center the tooltip horizontally */
-      transform: translateX(-50%);
-      opacity: 0.8;
-      white-space: pre-line;
-      z-index: 1; /* Ensure the tooltip appears above other elements */
-    }
   }
 }
