@@ -35,7 +35,6 @@ const makeStops = (size, startVal, endVal) => {
 
 const isEven = (number) => number % 2 === 0;
 
-// TODO: tests
 const makeStopsWithGivenMidpoint = (size, startVal, midpointVal, endVal) => {
   // basically ensures that if we have an even # size, we round up
   const middleIndex = Math.ceil((size - 1) / 2);
@@ -57,8 +56,9 @@ const makeStopsWithGivenMidpoint = (size, startVal, midpointVal, endVal) => {
   }
   const stops = firstArray.concat(secondArray);
   return stops;
-}
+};
 
+// keeping this function for now in case we want it again later
 const makeHueStops = (size, startVal, endVal) => {
   // basically ensures that if we have an even # size, we round up
   const middleIndex = Math.ceil((size - 1) / 2);
