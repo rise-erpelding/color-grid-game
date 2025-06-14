@@ -14,7 +14,6 @@ Play it at https://rise-erp-tiles.netlify.app/
 * Parcel.js
 * Jest
 * Stryker
-* Sass
 
 ## Contributing
 1. `git clone git@github.com:rise-erpelding/color-grid-game.git` Clone the project
