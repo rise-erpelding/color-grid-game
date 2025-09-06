@@ -32,6 +32,15 @@
       <input type="range" min="3" max="16" id="grid-size" name="grid-size" value="5">
       <label for="grid-size">Hard</label>
     </fieldset>
+    <label for="mode-select">Choose a mode:</label>
+    <fieldset class="cmp-color-form__select">
+      <select name="mode-select" id="mode-select">
+        <option value="rgb">RGB (original)</option>
+        <option value="srgb">sRGB</option>
+        <option value="hsl">HSL</option>
+        <option value="oklch">OKLCH</option>
+      </select>
+    </fieldset>
     <nav class="cmp-color-form__navigation">
       <button class="cmp-button cmp-color-form__surprise-me" type="button" title="pick colors for me">Surprise me</button>
       <input class="cmp-button cmp-color-form__submit" type="submit" value="get colors" title="get color grid">
