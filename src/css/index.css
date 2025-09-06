@@ -75,6 +75,9 @@ main {
 
   .cmp-color-form__difficulty {
     margin-top: 2.5rem;
+  }
+
+  & fieldset {
     border: none;
   }
 }

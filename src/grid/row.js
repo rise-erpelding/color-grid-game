@@ -13,10 +13,20 @@ const makeRow = (length, startColor, endColor) => {
   for (let i = 0; i < row.length; i += 1) {
     row[i] = convertRGBToHex(rStops[i], gStops[i], bStops[i]);
   }
-  // return row.map((value, i) => convertRGBToHex(rStops[i], gStops[i], bStops[i]));
+
+  return row;
+};
+
+const makeColorMixRow = (length, modeSelect, startColor, endColor) => {
+  const mixPercentageArray = makeStops(length, 0, 100);
+  const row = new Array(length);
+  for (let i = 0; i < row.length; i += 1) {
+    row[i] = `color-mix(in ${modeSelect}, ${startColor} ${100 - mixPercentageArray[i]}%, ${endColor} ${mixPercentageArray[i]}%)`;
+  }
   return row;
 };
 
 module.exports = {
   makeRow,
+  makeColorMixRow,
 };

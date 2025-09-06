@@ -4,14 +4,21 @@ import { startPreGame } from '../flows/pre-game';
 
 function getFormData(event) {
   const formData = new FormData(event.target);
-  const [topLeft, topRight, bottomLeft, bottomRight, gridSize] = formData.values();
-  return [topLeft, topRight, bottomLeft, bottomRight, gridSize];
+  const [topLeft, topRight, bottomLeft, bottomRight, gridSize, modeSelect] = formData.values();
+  return [topLeft, topRight, bottomLeft, bottomRight, gridSize, modeSelect];
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-  const [topLeft, topRight, bottomLeft, bottomRight, gridSize] = getFormData(event);
-  const colorGrid = makeGrid(Number(gridSize), topLeft, topRight, bottomLeft, bottomRight);
+  const [topLeft, topRight, bottomLeft, bottomRight, gridSize, modeSelect] = getFormData(event);
+  const colorGrid = makeGrid(
+    Number(gridSize),
+    modeSelect,
+    topLeft,
+    topRight,
+    bottomLeft,
+    bottomRight,
+  );
   startPreGame(colorGrid);
 }
 
