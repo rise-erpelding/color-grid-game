@@ -22,12 +22,12 @@
   },
   "homepage": "https://github.com/rise-erpelding/color-grid-game#readme",
   "devDependencies": {
-    "@stryker-mutator/core": "^7.3.0",
-    "@stryker-mutator/jest-runner": "^7.3.0",
-    "eslint": "^7.24.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "jest": "^30.0.0",
-    "parcel": "^2.15.2"
+    "@stryker-mutator/core": "^9.4.0",
+    "@stryker-mutator/jest-runner": "^9.4.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "jest": "^30.2.0",
+    "parcel": "^2.16.3"
   }
 }
